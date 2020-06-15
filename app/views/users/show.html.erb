@@ -1,0 +1,13 @@
+<div class="profile-container">
+<h1>User info</h1>
+	<%= form_for @user do |form| %>
+		<%= form.attachment_field :profile_image %>
+	<% end %>
+	<table>
+		<<tbody>
+			<tr>name</tr><tr><%= @user.name %></tr>
+			<tr>introduction</tr><tr></tr>
+		</tbody>
+	</table>
+</div>
+<p><%= link_to "Edit", edit_user_path(@user) %></p>
