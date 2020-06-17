@@ -1,5 +1,6 @@
 <div class="profile-container">
 <h1>User info</h1>
+	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
 	<table>
 		<tbody>
 			<tr>
@@ -8,7 +9,7 @@
 			</tr>
 			<tr>
 				<td>introduction</td>
-				<td></td>
+				<td><%= @user.introduction %></td>
 			</tr>
 		</tbody>
 	</table>
