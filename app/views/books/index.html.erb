@@ -12,7 +12,9 @@
 				<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
 			</th>
 			<th>
-				<%= book.title %>
+				<%= link_to book_path(book.id) do %>
+					<%= book.title %>
+				<% end %>
 			</th>
 			<th>
 				<%= book.body %>
