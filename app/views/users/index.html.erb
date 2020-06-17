@@ -7,13 +7,16 @@
 		<th></th>
 	</tr>
 	<% @users.each do |user| %>
-	<tr>
-		<th><%= form.attachment_field :profile_image %></th>
-		<th><%= user.name %></th>
-		<th><%= link_to user_path(user.id) do %>
-			<p>show</p>
-			<% end %>
-		</th>
-	</tr>
+		<tr>
+			<th>
+				<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+			</th>
+			<th>
+				<%= user.name %>
+			</th>
+			<th>
+				<p><%= link_to "show", user_path(user.id) %></p>
+			</th>
+		</tr>
 	<% end %>
 </table>

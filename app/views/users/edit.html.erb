@@ -1,4 +1,9 @@
 <h1>User info</h1>
+<ul>
+    <% @user.errors.full_messages.each do |message| %>
+        <li>error! <%= message %></li>
+    <% end %>
+ </ul>
 
 <div class="edit-container">
 	<%= form_for(@user) do |f| %>
