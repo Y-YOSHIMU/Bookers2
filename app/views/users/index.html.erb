@@ -1,22 +1,30 @@
-<h1>Users</h1>
-
-<table>
-	<tr>
-		<th>image</th>
-		<th>name</th>
-		<th></th>
-	</tr>
-	<% @users.each do |user| %>
-		<tr>
-			<th>
-				<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
-			</th>
-			<th>
-				<%= user.name %>
-			</th>
-			<th>
-				<p><%= link_to "show", user_path(user.id) %></p>
-			</th>
-		</tr>
-	<% end %>
-</table>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render partial: "users/sidemenu", locals: { user: current_user, book: @book} %>
+		</div>
+		<div class="col-lg-9">
+			<h1>Users</h1>
+			<table class="table">
+				<tr>
+					<th>image</th>
+					<th>name</th>
+					<th></th>
+				</tr>
+				<% @users.each do |user| %>
+					<tr>
+						<th>
+							<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+						</th>
+						<th>
+							<%= user.name %>
+						</th>
+						<th>
+							<p><%= link_to "show", user_path(user.id) %></p>
+						</th>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
