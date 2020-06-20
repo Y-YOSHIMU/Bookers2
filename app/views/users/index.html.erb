@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-lg-3">
+		<div class="col-xs-3">
 			<%= render partial: "users/sidemenu", locals: { user: current_user, book: @book} %>
 		</div>
-		<div class="col-lg-9">
+		<div class="col-xs-9">
 			<h1>Users</h1>
 			<table class="table">
 				<tr>
@@ -13,15 +13,17 @@
 				</tr>
 				<% @users.each do |user| %>
 					<tr>
-						<th>
+						<td>
 							<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-						</th>
-						<th>
+						</td>
+						<td>
 							<%= user.name %>
-						</th>
-						<th>
-							<p><%= link_to "show", user_path(user.id) %></p>
-						</th>
+						</td>
+						<td>
+							<p>
+								<%= link_to "Show", user_path(user.id) %>
+							</p>
+						</td>
 					</tr>
 				<% end %>
 			</table>
